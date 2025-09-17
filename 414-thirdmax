@@ -1,0 +1,35 @@
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var thirdMax = function (nums) {
+    let unique = []
+    for (let i = 0; i <= nums.length; i++) {
+        isDup = false
+        for (let j = 0; j <= unique.length; j++) {
+            if (nums[i] === unique[j]) {
+                isDup = true
+                break;
+            }
+        }
+        if (!isDup) {
+            unique.push(nums[i])
+        }
+    }
+    for (let i = 0; i < unique.length; i++) {
+        for (let j = i + 1; j < unique.length; j++) {
+            if (unique[i] < unique[j]) {
+                let temp = unique[i];
+                unique[i] = unique[j];
+                unique[j] = temp;
+            }
+        }
+
+    }
+    if (unique.length >= 3) {
+        return unique[2]
+    } else {
+        return unique[0]
+    }
+}
+
