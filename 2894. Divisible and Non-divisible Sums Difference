@@ -1,0 +1,27 @@
+/**
+ * @param {number} n
+ * @param {number} m
+ * @return {number}
+ */
+var differenceOfSums = function (n, m) {
+    let num1 = []
+    let num2 = []
+    let divSum = 0
+    let nonDivSum = 0
+    for (let i = 1; i <= n; i++) {
+        if (i % m == 0) {
+            num1.push(i)
+        } else {
+            num2.push(i)
+        }
+    }
+    for (let i = 0; i < num1.length; i++) {
+        divSum = divSum + num1[i]
+    }
+    for (let i = 0; i < num2.length; i++) {
+        nonDivSum = nonDivSum + num2[i]
+    }
+
+    return nonDivSum-divSum
+    
+};
