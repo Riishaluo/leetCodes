@@ -1,0 +1,26 @@
+/**
+ * @param {string} s1
+ * @param {string} s2
+ * @return {string[]}
+ */
+var uncommonFromSentences = function (s1, s2) {
+    let arr1 = s1.split(' ')
+    let arr2 = s2.split(' ')
+    let merged = [...arr1, ...arr2]
+    let countMap = {}
+    for (let i = 0; i < merged.length; i++) {
+        let word = merged[i];
+        if (countMap[word]) {
+            countMap[word] += 1; 
+        } else {
+            countMap[word] = 1;   
+        }
+    }
+    let counting = []
+    for(let s in countMap){
+        if(countMap[s]==1){
+            counting.push(s)
+        }
+    }
+    return counting
+};
